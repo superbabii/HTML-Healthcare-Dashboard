@@ -17,7 +17,8 @@
             <a href="#"><img src="assets/home_FILL0_wght300_GRAD0_opsz24.svg" alt="Home Icon">Overview</a>
             <a href="#" class="active"><img src="assets/group_FILL0_wght300_GRAD0_opsz24.svg"
                     alt="Patients Icon">Patients</a>
-            <a href="#"><img src="assets/calendar_today_FILL0_wght300_GRAD0_opsz24.svg" alt="Schedule Icon">Schedule</a>
+            <a href="#"><img src="assets/calendar_today_FILL0_wght300_GRAD0_opsz24.svg" alt="Schedule Icon"
+                    class="schedule">Schedule</a>
             <a href="#"><img src="assets/chat_bubble_FILL0_wght300_GRAD0_opsz24.svg" alt="Message Icon">Message</a>
             <a href="#"><img src="assets/credit_card_FILL0_wght300_GRAD0_opsz24.svg"
                     alt="Transactions Icon">Transactions</a>
@@ -29,6 +30,7 @@
                 <span class="user-name">Dr. Jose Simmons</span>
                 <span class="user-role">General Practitioner</span>
             </div>
+            <div class="divider"></div>
             <div class="settings-icon"><img src="assets/settings_FILL0_wght300_GRAD0_opsz24.svg" alt="Settings Icon">
             </div>
             <div class="more-options-icon"><img src="assets/more_vert_FILL0_wght300_GRAD0_opsz24.svg"
@@ -45,7 +47,7 @@
                 <li><img src="assets/Layer 1.png" alt="Patient Icon">Ryan Johnson</li>
                 <li><img src="assets/Layer 3.png" alt="Patient Icon">Brandon Mitchell</li>
                 <li class="selected"><img src="assets/Layer 2.png" alt="Patient Icon">Jessica Taylor</li>
-                <li><img src="assets/Layer 2.png" alt="Patient Icon">Samantha Johnson</li>
+                <li><img src="assets/Layer 6.png" alt="Patient Icon">Samantha Johnson</li>
             </ul>
         </div>
 
@@ -53,29 +55,29 @@
         <div class="main-content">
             <!-- Diagnosis History and Vitals Section -->
             <div class="diagnosis-vitals">
-                <h3>Diagnosis History</h3>
+                <h2>Diagnosis History</h2>
                 <div class="chart-container">
                     <canvas id="bloodPressureChart"></canvas>
                 </div>
 
                 <div class="vitals">
                     <div class="vital">
-                        <img src="assets/respiratory-icon.svg" class="vital-icon" alt="Respiratory Icon">
+                        <img src="assets/respiratory rate.svg" class="vital-icon" alt="Respiratory Icon">
                         <h4>Respiratory Rate</h4>
-                        <p>20 bpm</p>
-                        <span>Normal</span>
+                        <h1>20 bpm</h1>
+                        <p>Normal</p>
                     </div>
                     <div class="vital">
-                        <img src="assets/temperature-icon.svg" class="vital-icon" alt="Temperature Icon">
+                        <img src="assets/temperature.svg" class="vital-icon" alt="Temperature Icon">
                         <h4>Temperature</h4>
-                        <p>98.6°F</p>
-                        <span>Normal</span>
+                        <h1>98.6°F</h1>
+                        <p>Normal</p>
                     </div>
                     <div class="vital">
-                        <img src="assets/heart-rate-icon.svg" class="vital-icon" alt="Heart Rate Icon">
+                        <img src="assets/HeartBPM.svg" class="vital-icon" alt="Heart Rate Icon">
                         <h4>Heart Rate</h4>
-                        <p>78 bpm</p>
-                        <span>Lower than Average</span>
+                        <h1>78 bpm</h1>
+                        <p>Lower than Average</p>
                     </div>
                 </div>
             </div>
@@ -116,28 +118,65 @@
             <!-- Profile Section -->
             <div class="profile">
                 <img src="assets/Layer 2.png" alt="Jessica Taylor" class="profile-image">
-                <h3>Jessica Taylor</h3>
-                <p><img src="assets/calendar_FILL0_wght300_GRAD0_opsz24.svg" alt="Calendar Icon">Date of Birth: August
-                    23,
-                    1996</p>
-                <p><img src="assets/gender_FILL0_wght300_GRAD0_opsz24.svg" alt="Gender Icon">Gender: Female</p>
-                <p><img src="assets/phone_FILL0_wght300_GRAD0_opsz24.svg" alt="Phone Icon">Contact Info: (415) 555-1234
-                </p>
-                <p><img src="assets/contacts_FILL0_wght300_GRAD0_opsz24.svg" alt="Emergency Contacts Icon">Emergency
-                    Contacts: (415) 555-5678</p>
-                <p><img src="assets/insurance_FILL0_wght300_GRAD0_opsz24.svg" alt="Insurance Icon">Insurance Provider:
-                    Sunrise Health Assurance</p>
-                <button>Show All Information</button>
+                <h3 class="profile-name">Jessica Taylor</h3>
+
+                <div class="profile-detail">
+                    <img src="assets/BirthIcon.svg" alt="Calendar Icon" class="detail-icon">
+                    <div class="detail-text">
+                        <span class="detail-title">Date of Birth</span>
+                        <span class="detail-info">August 23, 1996</span>
+                    </div>
+                </div>
+
+                <div class="profile-detail">
+                    <img src="assets/FemaleIcon.svg" alt="Gender Icon" class="detail-icon">
+                    <div class="detail-text">
+                        <span class="detail-title">Gender</span>
+                        <span class="detail-info">Female</span>
+                    </div>
+                </div>
+
+                <div class="profile-detail">
+                    <img src="assets/PhoneIcon.svg" alt="Phone Icon" class="detail-icon">
+                    <div class="detail-text">
+                        <span class="detail-title">Contact Info</span>
+                        <span class="detail-info">(415) 555-1234</span>
+                    </div>
+                </div>
+
+                <div class="profile-detail">
+                    <img src="assets/PhoneIcon.svg" alt="Emergency Contacts Icon" class="detail-icon">
+                    <div class="detail-text">
+                        <span class="detail-title">Emergency Contacts</span>
+                        <span class="detail-info">(415) 555-5678</span>
+                    </div>
+                </div>
+
+                <div class="profile-detail">
+                    <img src="assets/InsuranceIcon.svg" alt="Insurance Icon" class="detail-icon">
+                    <div class="detail-text">
+                        <span class="detail-title">Insurance Provider</span>
+                        <span class="detail-info">Sunrise Health Assurance</span>
+                    </div>
+                </div>
+
+                <button class="info-button">Show All Information</button>
             </div>
+
             <!-- Lab Results -->
             <div class="lab-results">
                 <h3>Lab Results</h3>
                 <ul>
-                    <li>Blood Tests <a href="#" download>⬇️</a></li>
-                    <li>CT Scans <a href="#" download>⬇️</a></li>
-                    <li>Radiology Reports <a href="#" download>⬇️</a></li>
-                    <li>X-Rays <a href="#" download>⬇️</a></li>
-                    <li>Urine Test <a href="#" download>⬇️</a></li>
+                    <li>Blood Tests <a href="#" download><img src="assets/download_FILL0_wght300_GRAD0_opsz24.png"
+                                alt="download" class="download-image"></a></li>
+                    <li>CT Scans <a href="#" download><img src="assets/download_FILL0_wght300_GRAD0_opsz24.png"
+                                alt="download" class="download-image"></a></li>
+                    <li>Radiology Reports <a href="#" download><img src="assets/download_FILL0_wght300_GRAD0_opsz24.png"
+                                alt="download" class="download-image"></a></li>
+                    <li>X-Rays <a href="#" download><img src="assets/download_FILL0_wght300_GRAD0_opsz24.png"
+                                alt="download" class="download-image"></a></li>
+                    <li>Urine Test <a href="#" download><img src="assets/download_FILL0_wght300_GRAD0_opsz24.png"
+                                alt="download" class="download-image"></a></li>
                 </ul>
             </div>
         </div>

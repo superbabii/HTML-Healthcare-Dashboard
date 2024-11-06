@@ -17,14 +17,13 @@ body {
 /* Header */
 .header {
     background: #FFFFFF;
-    padding: 18px;
-    display: flex;
-    justify-content: space-between;
+    padding: 12px 32px;
+    display: grid;
+    grid-template-columns: 423px auto 414px;
     align-items: center;
     max-width: 1564px;
     margin: 18px auto;
-    /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); */
-    border-radius: 16px;
+    border-radius: 70px;
 }
 
 .logo img {
@@ -35,15 +34,20 @@ body {
 .navigation {
     display: flex;
     align-items: center;
-    gap: 20px;
+    /* width: 663px; */
+    height: 63px;
+    /* gap: 20px; */
 }
 
 .navigation a {
     display: flex;
     align-items: center;
-    padding: 10px 20px;
+    margin-right: 35px;
+    padding: 10px 10px;
     text-decoration: none;
     color: #333;
+    font-size: 14px;
+    letter-spacing: 0px;
     font-weight: 500;
     border-radius: 20px;
     transition: background-color 0.3s;
@@ -51,25 +55,35 @@ body {
 
 .navigation a img {
     margin-right: 8px;
-    width: 16px;
-    height: 16px;
+    /* width: 22px;
+height: 17px; */
 }
 
 .navigation a.active {
     color: #FFFFFF;
     background-color: #01F0D0;
+    padding: 12px 16px;
+    /* width: 122px;
+height: 41px; */
+}
+
+.navigation a.active img {
+    margin-right: 9px;
+    width: 24px;
+    height: 17px;
 }
 
 .user-profile {
+    margin-left: 100px;
     display: flex;
     align-items: center;
 }
 
 .user-image {
-    width: 40px;
-    height: 40px;
+    width: 44px;
+    height: 44px;
     border-radius: 50%;
-    margin-right: 10px;
+    margin-right: 8px;
 }
 
 .user-info {
@@ -79,12 +93,45 @@ body {
 }
 
 .user-name {
+    width: 119px;
+    height: 19px;
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    font-family: "Manrope";
+    letter-spacing: 0px;
     font-weight: bold;
 }
 
 .user-role {
-    font-size: 0.9em;
-    color: #888;
+    width: 129px;
+    height: 19px;
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    font-family: "Manrope";
+    letter-spacing: 0px;
+    color: #707070;
+}
+
+.settings-icon {
+    width: 19px;
+    height: 20px;
+}
+
+.more-options-icon {
+    margin-left: 12px;
+    width: 4px;
+    height: 18px;
+}
+
+.divider {
+    margin-right: 12px;
+    width: 1px;
+    height: 44px;
+    background-color: #EDEDED;
+    /* The color of the divider */
+    opacity: 1;
 }
 
 /* Container Layout */
@@ -102,14 +149,16 @@ body {
     background-color: #ffffff;
     width: 367px;
     height: 1054px;
-    padding: 20px;
+    /* padding: 20px; */
     border-radius: 16px;
-    /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); */
 }
 
 .sidebar h2 {
-    font-size: 1.5em;
-    margin-bottom: 20px;
+    padding: 20px;
+    font-size: 24px;
+    letter-spacing: 0px;
+    color: #072635;
+    /* margin-bottom: 20px; */
 }
 
 .patient-list {
@@ -119,28 +168,29 @@ body {
 .patient-list li {
     display: flex;
     align-items: center;
-    padding: 10px;
+    padding: 32px 20px;
     cursor: pointer;
     border-radius: 4px;
 }
 
 .patient-list li img {
-    width: 16px;
-    height: 16px;
+    width: 48px;
+    height: 48px;
     margin-right: 10px;
 }
 
 .patient-list .selected {
-    background-color: #01F0D0;
+    background-color: #D8FCF7;
     color: #FFFFFF;
     font-weight: bold;
+    width: 353px;
+    height: 80px;
 }
 
 /* Main Content */
 .main-content {
     display: flex;
     flex-direction: column;
-    /* gap: 20px; */
 }
 
 /* Diagnosis History and Vitals Section */
@@ -150,8 +200,13 @@ body {
     width: 766px;
     height: 673px;
     border-radius: 16px;
-    /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); */
-    margin-bottom: 20px;
+    margin-bottom: 32px;
+}
+
+.diagnosis-vitals h2 {
+    font-size: 24px;
+    letter-spacing: 0px;
+    color: #072635;
 }
 
 .chart-container {
@@ -162,20 +217,40 @@ body {
 .vitals {
     display: flex;
     justify-content: space-around;
-    margin-top: 20px;
+    text-align: left;
+}
+
+.vitals h1 {
+    font-size: 30px;
+    letter-spacing: 0px;
+    color: #072635;
+    text-align: left;
+}
+
+.vitals h4 {
+    font-size: 16px;
+    letter-spacing: 0px;
+    color: #072635;
+    text-align: left;
+}
+
+.vitals p {
+    font-size: 14px;
+    letter-spacing: 0px;
+    color: #072635;
+    text-align: left;
 }
 
 .vitals .vital {
     padding: 10px;
     flex: 1;
-    text-align: center;
     border-radius: 8px;
     background-color: #f9fafc;
 }
 
 .vitals .vital img.vital-icon {
-    width: 24px;
-    height: 24px;
+    width: 96px;
+    height: 96px;
     margin-bottom: 8px;
 }
 
@@ -186,7 +261,6 @@ body {
     height: 349px;
     padding: 20px;
     border-radius: 16px;
-    /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); */
 }
 
 .diagnostic-list table {
@@ -209,11 +283,11 @@ body {
 /* Lab Results */
 .lab-results {
     background-color: #ffffff;
+    margin-top: 32px;
     padding: 20px;
     width: 367px;
     height: 296px;
     border-radius: 16px;
-    /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); */
 }
 
 .lab-results ul {
@@ -228,44 +302,80 @@ body {
 
 /* Profile Section */
 .profile {
+    margin-top: -14px;
     text-align: center;
     background-color: #ffffff;
-    padding: 20px;
+    /* padding: 20px; */
     width: 367px;
     height: 740px;
     border-radius: 16px;
-    /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); */
 }
 
 .profile-image {
-    width: 100px;
-    height: 100px;
+    width: 200px;
+    height: 200px;
+    margin: 32px 84px 24px 83px;
     border-radius: 50%;
     margin-bottom: 15px;
 }
 
-.profile p {
-    display: flex;
-    align-items: center;
-    font-size: 0.9em;
-    color: #555;
-    margin: 5px 0;
+.profile h3 {
+    padding: 0px 102px 32px 101px;
+    font-size: 24px;
 }
 
-.profile p img {
-    width: 18px;
-    height: 18px;
-    margin-right: 8px;
+.profile-detail {
+    padding: 0px 0px 24px 20px;
+    display: flex;
+    align-items: center;
+    letter-spacing: 0px;
+    color: #072635;
+    text-align: left;
+    text-transform: capitalize;
+}
+
+/* Detail Text Container */
+.detail-text {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Detail Title */
+.detail-title {
+    font-size: 14px;
+    font-family: "Manrope";
+    color: #707070;
+    font-weight: normal;
+    margin-bottom: 2px;
+}
+
+/* Detail Info */
+.detail-info {
+    font-size: 14px;
+    font-family: "Manrope";
+    font-weight: bold;
+    color: #072635;
+    margin-top: 2px;
+}
+
+.detail-icon {
+    width: 42px;
+    height: 42px;
+    margin-right: 16px;
 }
 
 button {
     background-color: #00C292;
     color: #fff;
+    margin: 18px 74px 32px 73px;
     padding: 10px 20px;
     border: none;
     border-radius: 4px;
     cursor: pointer;
     transition: background-color 0.3s;
+    width: 220px;
+    height: 41px;
+    border-radius: 41px;
 }
 
 button:hover {
