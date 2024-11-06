@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Patient Dashboard</title>
     <link rel="stylesheet" href="styles.css">
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> <!-- Chart.js Library -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 
 <body>
@@ -168,7 +168,31 @@
             <div class="diagnosis-vitals">
                 <h2>Diagnosis History</h2>
                 <div class="chart-container">
-                    <canvas id="bloodPressureChart"></canvas>
+                    <div class="chart-details">
+                        <div class="chart-title">
+                            <h2>Blood Pressure</h2>
+                            <span class="last-months">Last 6 months <img
+                                    src="assets/expand_more_FILL0_wght300_GRAD0_opsz24.svg" alt="Dropdown Icon"
+                                    class="dropdown-icon"></span>
+                        </div>
+                        <canvas id="bloodPressureChart"></canvas>
+                    </div>
+                    <div class="statistics">
+                        <div class="stat">
+                            <div class="legend"><span class="legend-color systolic-color"></span><span>Systolic</span>
+                            </div>
+                            <p class="stat-value">160</p>
+                            <p class="stat-label"><img src="assets/ArrowUp.svg" alt="ArrowUp Icon"
+                                    class="Arrow-icon">Higher than Average</p>
+                        </div>
+                        <div class="verfical-divider"></div>
+                        <div class="stat">
+                            <p class="legend"><span class="legend-color diastolic-color"></span>Diastolic</p>
+                            <p class="stat-value">78</span>
+                            <p class="stat-label"><img src="assets/ArrowDown.svg" alt="ArrowDown Icon"
+                                    class="Arrow-icon">Lower than Average</p>
+                        </div>
+                    </div>
                 </div>
 
                 <div class="vitals">
@@ -213,7 +237,7 @@
                         <tr>
                             <td>Hypertension</td>
                             <td>Chronic high blood pressure</td>
-                            <td>Under<br/> Observation</td>
+                            <td>Under<br /> Observation</td>
                         </tr>
                         <tr>
                             <td>Type 2 Diabetes</td>
@@ -339,7 +363,68 @@
         </div>
     </div>
 
-    <script src="script.js"></script>
+    <script>
+        const ctx = document.getElementById('bloodPressureChart').getContext('2d');
+        const bloodPressureChart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: ['Oct, 2023', 'Nov, 2023', 'Dec, 2023', 'Jan, 2024', 'Feb, 2024', 'Mar, 2024'],
+                datasets: [
+                    {
+                        label: 'Systolic',
+                        data: [120, 140, 160, 130, 150, 160],
+                        borderColor: '#E57373',
+                        backgroundColor: 'rgba(229, 115, 115, 0.2)',
+                        fill: false,
+                        tension: 0.4,
+                        pointBackgroundColor: '#E57373',
+                        pointRadius: 5,
+                    },
+                    {
+                        label: 'Diastolic',
+                        data: [100, 90, 110, 80, 85, 78],
+                        borderColor: '#8C6FE6',
+                        backgroundColor: 'rgba(140, 111, 230, 0.2)',
+                        fill: false,
+                        tension: 0.4,
+                        pointBackgroundColor: '#8C6FE6',
+                        pointRadius: 5,
+                    }
+                ]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    x: {
+                        grid: {
+                            display: false
+                        }
+                    },
+                    y: {
+                        min: 60,
+                        max: 180,
+                        ticks: {
+                            stepSize: 20
+                        },
+                        grid: {
+                            color: 'rgba(0, 0, 0, 0.1)'
+                        }
+                    }
+                },
+                plugins: {
+                    legend: {
+                        display: false
+                    }
+                },
+                elements: {
+                    line: {
+                        borderWidth: 2
+                    }
+                }
+            }
+        });
+    </script>
 </body>
 
 </html>
