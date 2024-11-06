@@ -9,6 +9,9 @@ body {
     font-family: Arial, sans-serif;
     background-color: #F6F7F8;
     color: #333;
+    width: 1600px;
+    height: 1195px;
+    margin: 0 auto;
 }
 
 /* Header */
@@ -20,7 +23,7 @@ body {
     align-items: center;
     max-width: 1564px;
     margin: 18px auto;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); */
     border-radius: 16px;
 }
 
@@ -87,19 +90,21 @@ body {
 /* Container Layout */
 .container {
     display: grid;
-    grid-template-columns: 300px auto 300px;
-    gap: 20px;
+    grid-template-columns: 367px auto 367px;
     max-width: 1600px;
-    margin: 0 auto;
+    margin: 18px auto;
     padding: 20px;
+    gap: 32px;
 }
 
 /* Sidebar */
 .sidebar {
     background-color: #ffffff;
+    width: 367px;
+    height: 1054px;
     padding: 20px;
     border-radius: 16px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); */
 }
 
 .sidebar h2 {
@@ -135,7 +140,7 @@ body {
 .main-content {
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    /* gap: 20px; */
 }
 
 /* Diagnosis History and Vitals Section */
@@ -145,7 +150,7 @@ body {
     width: 766px;
     height: 673px;
     border-radius: 16px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); */
     margin-bottom: 20px;
 }
 
@@ -181,7 +186,7 @@ body {
     height: 349px;
     padding: 20px;
     border-radius: 16px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); */
 }
 
 .diagnostic-list table {
@@ -206,9 +211,9 @@ body {
     background-color: #ffffff;
     padding: 20px;
     width: 367px;
-height: 296px;
+    height: 296px;
     border-radius: 16px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); */
 }
 
 .lab-results ul {
@@ -229,7 +234,7 @@ height: 296px;
     width: 367px;
     height: 740px;
     border-radius: 16px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); */
 }
 
 .profile-image {
