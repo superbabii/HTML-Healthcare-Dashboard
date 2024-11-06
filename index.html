@@ -265,14 +265,13 @@
         <div class="main-content">
             <!-- Profile Section -->
             <div class="profile">
-                <img src="assets/Layer 2.png" alt="Jessica Taylor" class="profile-image">
-                <h3 class="profile-name">Jessica Taylor</h3>
-
+                <img id="profile_picture" src="" alt="profile-picture" class="profile-image">
+                <h3 class="profile-name" id="name"></h3>
                 <div class="profile-detail">
                     <img src="assets/BirthIcon.svg" alt="Calendar Icon" class="detail-icon">
                     <div class="detail-text">
                         <span class="detail-title">Date of Birth</span>
-                        <span class="detail-info">August 23, 1996</span>
+                        <span class="detail-info" id="date_of_birth"></span>
                     </div>
                 </div>
 
@@ -280,7 +279,7 @@
                     <img src="assets/FemaleIcon.svg" alt="Gender Icon" class="detail-icon">
                     <div class="detail-text">
                         <span class="detail-title">Gender</span>
-                        <span class="detail-info">Female</span>
+                        <span class="detail-info" id="gender"></span>
                     </div>
                 </div>
 
@@ -288,7 +287,7 @@
                     <img src="assets/PhoneIcon.svg" alt="Phone Icon" class="detail-icon">
                     <div class="detail-text">
                         <span class="detail-title">Contact Info</span>
-                        <span class="detail-info">(415) 555-1234</span>
+                        <span class="detail-info" id="phone_number"></span>
                     </div>
                 </div>
 
@@ -296,7 +295,7 @@
                     <img src="assets/PhoneIcon.svg" alt="Emergency Contacts Icon" class="detail-icon">
                     <div class="detail-text">
                         <span class="detail-title">Emergency Contacts</span>
-                        <span class="detail-info">(415) 555-5678</span>
+                        <span class="detail-info" id="emergency_contact"></span>
                     </div>
                 </div>
 
@@ -304,7 +303,7 @@
                     <img src="assets/InsuranceIcon.svg" alt="Insurance Icon" class="detail-icon">
                     <div class="detail-text">
                         <span class="detail-title">Insurance Provider</span>
-                        <span class="detail-info">Sunrise Health Assurance</span>
+                        <span class="detail-info" id="insurance_type"></span>
                     </div>
                 </div>
 
@@ -363,68 +362,7 @@
         </div>
     </div>
 
-    <script>
-        const ctx = document.getElementById('bloodPressureChart').getContext('2d');
-        const bloodPressureChart = new Chart(ctx, {
-            type: 'line',
-            data: {
-                labels: ['Oct, 2023', 'Nov, 2023', 'Dec, 2023', 'Jan, 2024', 'Feb, 2024', 'Mar, 2024'],
-                datasets: [
-                    {
-                        label: 'Systolic',
-                        data: [120, 140, 160, 130, 150, 160],
-                        borderColor: '#E57373',
-                        backgroundColor: 'rgba(229, 115, 115, 0.2)',
-                        fill: false,
-                        tension: 0.4,
-                        pointBackgroundColor: '#E57373',
-                        pointRadius: 5,
-                    },
-                    {
-                        label: 'Diastolic',
-                        data: [100, 90, 110, 80, 85, 78],
-                        borderColor: '#8C6FE6',
-                        backgroundColor: 'rgba(140, 111, 230, 0.2)',
-                        fill: false,
-                        tension: 0.4,
-                        pointBackgroundColor: '#8C6FE6',
-                        pointRadius: 5,
-                    }
-                ]
-            },
-            options: {
-                responsive: true,
-                maintainAspectRatio: false,
-                scales: {
-                    x: {
-                        grid: {
-                            display: false
-                        }
-                    },
-                    y: {
-                        min: 60,
-                        max: 180,
-                        ticks: {
-                            stepSize: 20
-                        },
-                        grid: {
-                            color: 'rgba(0, 0, 0, 0.1)'
-                        }
-                    }
-                },
-                plugins: {
-                    legend: {
-                        display: false
-                    }
-                },
-                elements: {
-                    line: {
-                        borderWidth: 2
-                    }
-                }
-            }
-        });
-    </script>
+    <script src="script.js"></script>
 </body>
 
 </html>
