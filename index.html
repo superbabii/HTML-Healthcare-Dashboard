@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Patient Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> <!-- Chart.js Library -->
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="logo"><img src="assets/TestLogo.svg" alt="Tech.Care Logo"></div>
+        <nav class="navigation">
+            <a href="#"><img src="assets/home_FILL0_wght300_GRAD0_opsz24.svg" alt="Home Icon">Overview</a>
+            <a href="#" class="active"><img src="assets/group_FILL0_wght300_GRAD0_opsz24.svg"
+                    alt="Patients Icon">Patients</a>
+            <a href="#"><img src="assets/calendar_today_FILL0_wght300_GRAD0_opsz24.svg" alt="Schedule Icon">Schedule</a>
+            <a href="#"><img src="assets/chat_bubble_FILL0_wght300_GRAD0_opsz24.svg" alt="Message Icon">Message</a>
+            <a href="#"><img src="assets/credit_card_FILL0_wght300_GRAD0_opsz24.svg"
+                    alt="Transactions Icon">Transactions</a>
+        </nav>
+        <div class="user-profile">
+            <img src="assets/senior-woman-doctor-and-portrait-smile-for-health-2023-11-27-05-18-16-utc.png"
+                alt="Dr. Jose Simmons" class="user-image">
+            <div class="user-info">
+                <span class="user-name">Dr. Jose Simmons</span>
+                <span class="user-role">General Practitioner</span>
+            </div>
+            <div class="settings-icon"><img src="assets/settings_FILL0_wght300_GRAD0_opsz24.svg" alt="Settings Icon">
+            </div>
+            <div class="more-options-icon"><img src="assets/more_vert_FILL0_wght300_GRAD0_opsz24.svg"
+                    alt="More Options Icon"></div>
+        </div>
+    </header>
+
+    <div class="container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <h2>Patients</h2>
+            <ul class="patient-list">
+                <li><img src="assets/Layer 8.png" alt="Patient Icon">Emily Williams</li>
+                <li><img src="assets/Layer 1.png" alt="Patient Icon">Ryan Johnson</li>
+                <li><img src="assets/Layer 3.png" alt="Patient Icon">Brandon Mitchell</li>
+                <li class="selected"><img src="assets/Layer 2.png" alt="Patient Icon">Jessica Taylor</li>
+                <li><img src="assets/Layer 2.png" alt="Patient Icon">Samantha Johnson</li>
+            </ul>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Diagnosis History and Vitals Section -->
+            <section class="diagnosis-vitals">
+                <h3>Diagnosis History</h3>
+                <div class="chart-container">
+                    <canvas id="bloodPressureChart"></canvas>
+                </div>
+
+                <div class="vitals">
+                    <div class="vital">
+                        <img src="assets/respiratory-icon.svg" class="vital-icon" alt="Respiratory Icon">
+                        <h4>Respiratory Rate</h4>
+                        <p>20 bpm</p>
+                        <span>Normal</span>
+                    </div>
+                    <div class="vital">
+                        <img src="assets/temperature-icon.svg" class="vital-icon" alt="Temperature Icon">
+                        <h4>Temperature</h4>
+                        <p>98.6°F</p>
+                        <span>Normal</span>
+                    </div>
+                    <div class="vital">
+                        <img src="assets/heart-rate-icon.svg" class="vital-icon" alt="Heart Rate Icon">
+                        <h4>Heart Rate</h4>
+                        <p>78 bpm</p>
+                        <span>Lower than Average</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Diagnostic List -->
+            <section class="diagnostic-list">
+                <h3>Diagnostic List</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Problem/Diagnosis</th>
+                            <th>Description</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Hypertension</td>
+                            <td>Chronic high blood pressure</td>
+                            <td>Under Observation</td>
+                        </tr>
+                        <tr>
+                            <td>Type 2 Diabetes</td>
+                            <td>Insulin resistance and elevated blood sugar</td>
+                            <td>Cured</td>
+                        </tr>
+                        <tr>
+                            <td>Asthma</td>
+                            <td>Frequent episodes of bronchial constriction</td>
+                            <td>Inactive</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+        </main>
+
+        <main class="main-content">
+            <!-- Profile Section -->
+            <aside class="profile">
+                <img src="assets/Layer 2.png" alt="Jessica Taylor" class="profile-image">
+                <h3>Jessica Taylor</h3>
+                <p><img src="assets/calendar_FILL0_wght300_GRAD0_opsz24.svg" alt="Calendar Icon">Date of Birth: August
+                    23,
+                    1996</p>
+                <p><img src="assets/gender_FILL0_wght300_GRAD0_opsz24.svg" alt="Gender Icon">Gender: Female</p>
+                <p><img src="assets/phone_FILL0_wght300_GRAD0_opsz24.svg" alt="Phone Icon">Contact Info: (415) 555-1234
+                </p>
+                <p><img src="assets/contacts_FILL0_wght300_GRAD0_opsz24.svg" alt="Emergency Contacts Icon">Emergency
+                    Contacts: (415) 555-5678</p>
+                <p><img src="assets/insurance_FILL0_wght300_GRAD0_opsz24.svg" alt="Insurance Icon">Insurance Provider:
+                    Sunrise Health Assurance</p>
+                <button>Show All Information</button>
+            </aside>
+            <!-- Lab Results -->
+            <section class="lab-results">
+                <h3>Lab Results</h3>
+                <ul>
+                    <li>Blood Tests <a href="#" download>⬇️</a></li>
+                    <li>CT Scans <a href="#" download>⬇️</a></li>
+                    <li>Radiology Reports <a href="#" download>⬇️</a></li>
+                    <li>X-Rays <a href="#" download>⬇️</a></li>
+                    <li>Urine Test <a href="#" download>⬇️</a></li>
+                </ul>
+            </section>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
