@@ -1,4 +1,4 @@
-
+// Initialize Blood Pressure Chart with Chart.js
 const ctx = document.getElementById('bloodPressureChart').getContext('2d');
 const bloodPressureChart = new Chart(ctx, {
     type: 'line',
@@ -7,7 +7,7 @@ const bloodPressureChart = new Chart(ctx, {
         datasets: [
             {
                 label: 'Systolic',
-                data: [120, 140, 160, 130, 150, 160],
+                data: [120, 140, 160, 130, 150, 160], // Sample data, will update with fetched data
                 borderColor: '#E57373',
                 backgroundColor: 'rgba(229, 115, 115, 0.2)',
                 fill: false,
@@ -17,7 +17,7 @@ const bloodPressureChart = new Chart(ctx, {
             },
             {
                 label: 'Diastolic',
-                data: [100, 90, 110, 80, 85, 78],
+                data: [100, 90, 110, 80, 85, 78], // Sample data, will update with fetched data
                 borderColor: '#8C6FE6',
                 backgroundColor: 'rgba(140, 111, 230, 0.2)',
                 fill: false,
@@ -32,30 +32,20 @@ const bloodPressureChart = new Chart(ctx, {
         maintainAspectRatio: false,
         scales: {
             x: {
-                grid: {
-                    display: false
-                }
+                grid: { display: false }
             },
             y: {
                 min: 60,
                 max: 180,
-                ticks: {
-                    stepSize: 20
-                },
-                grid: {
-                    color: 'rgba(0, 0, 0, 0.1)'
-                }
+                ticks: { stepSize: 20 },
+                grid: { color: 'rgba(0, 0, 0, 0.1)' }
             }
         },
         plugins: {
-            legend: {
-                display: false
-            }
+            legend: { display: false }
         },
         elements: {
-            line: {
-                borderWidth: 2
-            }
+            line: { borderWidth: 2 }
         }
     }
 });
@@ -68,7 +58,6 @@ const encodedCredentials = btoa(`${username}:${password}`);
 // Function to fetch and display data for Jessica Taylor
 async function fetchJessicaTaylorData() {
     try {
-        // Fetch data from the API
         const response = await fetch('https://fedskillstest.coalitiontechnologies.workers.dev', {
             method: 'GET',
             headers: {
@@ -81,11 +70,11 @@ async function fetchJessicaTaylorData() {
         }
 
         const data = await response.json();
-
-        // Filter to find Jessica Taylor's data
         const jessicaData = data.find(patient => patient.name === 'Jessica Taylor');
+
         if (jessicaData) {
             displayJessicaTaylorData(jessicaData);
+            updateChart(jessicaData.diagnosis_history); // Update chart with real data
         } else {
             console.error('Jessica Taylor not found in the response data');
         }
@@ -100,7 +89,6 @@ function displayJessicaTaylorData(data) {
     document.getElementById('profile-picture').src = data.profile_picture || '';
     document.getElementById('name').innerText = data.name;
     document.getElementById('gender').innerText = data.gender;
-    document.getElementById('age').innerText = data.age;
     document.getElementById('dob').innerText = data.date_of_birth;
     document.getElementById('phone').innerText = data.phone_number;
     document.getElementById('emergency-contact').innerText = data.emergency_contact;
@@ -109,30 +97,42 @@ function displayJessicaTaylorData(data) {
     // Diagnosis History (only displaying March 2024 as per sample)
     const diagnosisMarch2024 = data.diagnosis_history.find(d => d.month === "March" && d.year === 2024);
     if (diagnosisMarch2024) {
-        document.getElementById('systolic').innerText = `${diagnosisMarch2024.blood_pressure.systolic.value} (${diagnosisMarch2024.blood_pressure.systolic.levels})`;
-        document.getElementById('diastolic').innerText = `${diagnosisMarch2024.blood_pressure.diastolic.value} (${diagnosisMarch2024.blood_pressure.diastolic.levels})`;
-        document.getElementById('heart-rate').innerText = `${diagnosisMarch2024.heart_rate.value} (${diagnosisMarch2024.heart_rate.levels})`;
-        document.getElementById('respiratory-rate').innerText = `${diagnosisMarch2024.respiratory_rate.value} (${diagnosisMarch2024.respiratory_rate.levels})`;
-        document.getElementById('temperature').innerText = `${diagnosisMarch2024.temperature.value}°F (${diagnosisMarch2024.temperature.levels})`;
+        document.getElementById('systolic').innerText = diagnosisMarch2024.blood_pressure.systolic.value;
+        document.getElementById('diastolic').innerText = diagnosisMarch2024.blood_pressure.diastolic.value;
+        document.getElementById('heart-rate').innerText = `${diagnosisMarch2024.heart_rate.value} bpm`;
+        document.getElementById('respiratory-rate').innerText = `${diagnosisMarch2024.respiratory_rate.value} bpm`;
+        document.getElementById('temperature').innerText = `${diagnosisMarch2024.temperature.value}°F`;
     }
 
     // Diagnostic List
     const diagnosticList = document.getElementById('diagnostic-list');
-    diagnosticList.innerHTML = ""; // Clear existing items
+    diagnosticList.innerHTML = ''; // Clear existing items
     data.diagnostic_list.forEach(diagnostic => {
-        const li = document.createElement('li');
-        li.innerText = `${diagnostic.name}: ${diagnostic.description} - ${diagnostic.status}`;
-        diagnosticList.appendChild(li);
+        const row = document.createElement('tr');
+        row.innerHTML = `<td>${diagnostic.name}</td><td>${diagnostic.description}</td><td>${diagnostic.status}</td>`;
+        diagnosticList.appendChild(row);
     });
 
     // Lab Results
     const labResultsList = document.getElementById('lab-results');
-    labResultsList.innerHTML = ""; // Clear existing items
+    labResultsList.innerHTML = ''; // Clear existing items
     data.lab_results.forEach(result => {
         const li = document.createElement('li');
         li.innerText = result;
         labResultsList.appendChild(li);
     });
+}
+
+// Function to update Chart.js data based on diagnosis history
+function updateChart(diagnosisHistory) {
+    const months = diagnosisHistory.slice(-6).map(entry => `${entry.month}, ${entry.year}`);
+    const systolicData = diagnosisHistory.slice(-6).map(entry => entry.blood_pressure.systolic.value);
+    const diastolicData = diagnosisHistory.slice(-6).map(entry => entry.blood_pressure.diastolic.value);
+
+    bloodPressureChart.data.labels = months;
+    bloodPressureChart.data.datasets[0].data = systolicData;
+    bloodPressureChart.data.datasets[1].data = diastolicData;
+    bloodPressureChart.update();
 }
 
 // Fetch and display data on page load
